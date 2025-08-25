@@ -1,10 +1,10 @@
 // setup variables
-const walkAcceleration = 2.5; // how much is added to the speed each frame
+const walkAcceleration = 200; // how much is added to the speed each frame
 const gravity = 0.5; // how much is subtracted from speedY each frame
 const friction = 1.5; // how much the player is slowed each frame
-const maxSpeed = 8; // maximum horizontal speed, not vertical
+const maxSpeed = 15; // maximum horizontal speed, not vertical
 const playerJumpStrength = 12; // this is subtracted from the speedY each jump
-const projectileSpeed = 8; // the speed of projectiles
+const projectileSpeed = 5; // the speed of projectiles
 let shouldDrawGrid = false;
 
 /////////////////////////////////////////////////
@@ -18,7 +18,7 @@ const playerScale = 0.8; //makes the player just a bit smaller. Doesn't affect t
 // Player variables
 const player = {
   x: 50,
-  y: 100,
+  y: 0,
   speedX: 0,
   speedY: 0,
   width: undefined,
