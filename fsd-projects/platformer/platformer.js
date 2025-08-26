@@ -31,12 +31,12 @@ $(function () {
 
 
     // TODO 2 - Create Platforms
-    createPlatform(125, 625, 10100, 9);
-    createPlatform(0, 525, 1250, 9);
-    createPlatform(125, 425, 1500, 9);
-    createPlatform(0, 325, 1250, 9);
-    createPlatform(125, 225, 15000, 9);
-    createPlatform(0, 125, 1250, 9);
+    createPlatform(125, 625, 10100, 1, "red");
+    createPlatform(0, 525, 1250, 1, "blue");
+    createPlatform(125, 425, 1500, 1, "red");
+    createPlatform(0, 325, 1250, 1, "blue");
+    createPlatform(125, 225, 15000, 1, "red");
+    createPlatform(0, 125, 1250, 1, "light blue");
     
 
 
@@ -56,8 +56,8 @@ createCannon("top", 600, 600 );
 createCannon("top", 800, 600 );
 createCannon("top", 1000, 600 );
 createCannon("top", 1200, 600 );
-createCannon("top", 1400, 600 );
-createCannon("top", 1, 500 );
+
+
 
 
 

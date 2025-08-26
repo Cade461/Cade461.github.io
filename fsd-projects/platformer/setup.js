@@ -1,14 +1,14 @@
 // setup variables
-const walkAcceleration = 200; // how much is added to the speed each frame
-const gravity = 0.5; // how much is subtracted from speedY each frame
-const friction = 1.5; // how much the player is slowed each frame
-const maxSpeed = 15; // maximum horizontal speed, not vertical
-const playerJumpStrength = 12; // this is subtracted from the speedY each jump
+const walkAcceleration = 3000; // how much is added to the speed each frame
+const gravity = .5; // how much is subtracted from speedY each frame
+const friction =2.5; // how much the player is slowed each frame
+const maxSpeed = 25; // maximum horizontal speed, not vertical
+const playerJumpStrength = 50; // this is subtracted from the speedY each jump
 const projectileSpeed = 5; // the speed of projectiles
 let shouldDrawGrid = false;
 
 /////////////////////////////////////////////////
-//////////ONLY CHANGE ABOVE THIS POINT///////////
+//////////ONLY CHANGE ABOVE HIS POINT///////////
 /////////////////////////////////////////////////
 
 // Base game variables
