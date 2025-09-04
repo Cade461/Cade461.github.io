@@ -6,10 +6,11 @@
     <script src="jquery.min.js"></script>
     <style>
       .box {
-        width: 70px;
-        height: 70px;
-        background-color: teal;
-        font-size: 300%;
+        width: 90px;
+        height: 90px;
+        background-image: url("download-removebg-preview.png");
+        background-repeat:no-repeat;
+        background-size:80px;
         text-align: center;
         user-select: none;
         display: block;
@@ -17,10 +18,12 @@
         top: 100px;
         /* Change me! */
         left: 0px;
+ 
       }
 
       .board {
         height: 100vh;
+        background-image: url("https://i.ytimg.com/vi/LMJihxzB-KM/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLANwvP1bdYVNnpd4LQVNuY-iIv1VQ");
       }
     </style>
     <!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -68,8 +71,12 @@
         /////////////////// YOUR CODE BELOW HERE /////////////////////////
         //////////////////////////////////////////////////////////////////
 
-        // TODO 2 - Variable declarations
+        // TODO 2 - Variable declarations  
+        var positionX = 0;
+        var points = 0;
+        var speed = 10
 
+        
 
 
 
@@ -80,11 +87,24 @@
          * If the box drifts off the screen, turn it around!
          */
         function update() {
+        moveBoxTo(positionX); 
+        positionX += speed;
+        if (positionX > boardWidth){
+          speed = speed * -1;
+
+        }
+        if (positionX < 0){
+          speed *= -1
+        }
+        
+           
+       
+        
 
         
 
           
-        }
+      }
 
         /**
          * This Function will be called each time the box is clicked.
@@ -94,7 +114,11 @@
          * - move the box to the left side of the screen.
          */
         function handleBoxClick() {
-
+          positionX = 0;
+          changeBoxText(points)
+          points++;
+          speed = 3 * points + 10;
+          
 
 
 
