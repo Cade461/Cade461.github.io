@@ -27,30 +27,69 @@ function createEnemy(x,y){
     redSquare.y = -25;
     enemy.addChild(redSquare);
     enemy.x = x;
-    enemy.y =y;
+    enemy.y = groundY - y;
     game.addGameItem(enemy);
-    enemy.velocityX = -3
-    enemy.rotationalVelocity = 89;
-    game.changeIntegtiy(-20);
+    enemy.velocityX = -1
+    enemy.rotationalVelocity = 1;
+    enemy.onPlayerCollision = function (){
+      game.changeIntegtiy(-10);
+    }
+    enemy.onProjectileCollsion = function (){
+      game.increaseScore(250);
+      enemy.fadeout();
+    }
 }
 
-function sawBlade(x,y){
     var hitZoneSize = 25;
     var damageFromObstacle = 10;
     var sawBladeHitZone = game.createObstacle(hitZoneSize, damageFromObstacle);
-    sawBladeHitZone.x = x;
-    sawBladeHitZone.y = y;
+    sawBladeHitZone.x = 400 ;
+    sawBladeHitZone.y = groundY - 50;
     game.addGameItem(sawBladeHitZone);
     var obstacleImage = draw.bitmap("img/sawblade.png");
     sawBladeHitZone.addChild(obstacleImage);
     obstacleImage.x = -25;
-    obstacleImage.y = -25; 
+    obstacleImage.y = -25;
+    sawBladeHitZone.rotationalVelocity = 10;
+    sawBladeHitZone.velocityX = -3;
+    sawBladeHitZone.onPlayerCollision = function(){
+      game.changeIntegtiy(-10)
+    } 
+    sawBladeHitZone.onProjectileCollsion = function(){
+      game.increaseScore(2000);
+      sawBladeHitZone.fadeout();
+        }
+
+
+createEnemy(400,  50);
+createEnemy(1300,  50);
+createEnemy(2000,  50);
+
+function createReward(x,y){
+  var reward = game.createGameItem("reward", 50);
+  var elixir = draw.bitmap("img/elixir.png");
+  elixir.x = -25;
+  elixir.y = -25;
+  reward.addChild(elixir)
+  elixir.ScaleX = 0.5;
+  elixir.ScaleY = 0.5;
+  reward.x = x;
+  reward.y = groundY - y
+  reward.velocityX = -0.5;
+  game.addGameItem(reward);
+
+  reward.onPlayerCollision = function (){
+    game.changeIntegtiy(10)
+    game.increaseScore(500)
+    reward.fadeout();
+  }
+  reward.onProjectileCollsion = function () {
+    reward.fadeout();
+
+  }
 }
 
-createEnemy(800, groundY - 10);
-sawBlade(400, 300);
-
-
+createReward(500, 600)
     
 
     function startLevel() {
